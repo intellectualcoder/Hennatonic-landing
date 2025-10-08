@@ -123,7 +123,31 @@
     <a href="https://venmo.com/lightningartist" class="btn burgundy" target="_blank">Venmo @lightningartist</a>
     <a href="https://www.paypal.com/paypalme/lightningartist" class="btn burgundy" target="_blank">PayPal username: @lightningartist
     </a>
-    <a href="mailto:youremail@domain.com?subject=Zelle Payment" class="btn burgundy">Zelle: 2819004756</a>
+    <!-- Zelle Button (not a payment link, just styled for Zelle info) -->
+<a href="#" class="btn burgundy" onclick="copyZelle()">Zelle (click to copy phone number): 2819004756</a>
+
+<!-- Hidden input to hold the phone number for copying -->
+<input type="text" id="zelleNumber" value="2819004756" readonly style="opacity:0; position:absolute; left:-9999px;">
+
+<!-- Optional: Display a copy confirmation -->
+<span id="copyMsg" style="display:none; color:green; margin-left:10px;">Copied!</span>
+
+<!-- Copy Script -->
+<script>
+  function copyZelle() {
+    const copyText = document.getElementById("zelleNumber");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile
+    document.execCommand("copy");
+
+    // Show confirmation message
+    const msg = document.getElementById("copyMsg");
+    msg.style.display = "inline";
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 1500);
+  }
+</script>
 
     <!-- Phone buttons -->
     <a href="tel:+12819004756" class="btn green">Call Us</a>
